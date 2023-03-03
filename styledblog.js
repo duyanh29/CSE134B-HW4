@@ -1,24 +1,24 @@
 // delete button of enttries
-var dialogDelete = document.getElementById('dialogDelete');
-var deleteBtns = document.getElementsByClassName('delete');
-var deletedTR;
-var deleteContent;
+let dialogDelete = document.getElementById('dialogDelete');
+let deleteBtns = document.getElementsByClassName('delete');
+let deletedTR;
+let deleteContent;
 function deleteFunction() {
 	deletedTR = this.parentNode.parentNode.parentNode;
 	deleteContent = this.parentNode.parentNode;
 	dialogDelete.showModal();
 }
 
-for (var i = 0; i < deleteBtns.length; i++) {
+for (let i = 0; i < deleteBtns.length; i++) {
 	deleteBtns[i].addEventListener('click', deleteFunction);
 }
 
-var editTR;
-var contentEdit;
-var editClicked = false;
+let editTR;
+let contentEdit;
+let editClicked = false;
 //  edit buttons of enttries
-var dialog = document.getElementById('dialog');
-var editBtns = document.getElementsByClassName('edit');
+let dialog = document.getElementById('dialog');
+let editBtns = document.getElementsByClassName('edit');
 function editFunction() {
 	editClicked = true;
 	editTR = this.parentNode.parentNode.parentNode;
@@ -26,12 +26,12 @@ function editFunction() {
 	dialog.showModal();
 }
 
-for (var i = 0; i < editBtns.length; i++) {
+for (let i = 0; i < editBtns.length; i++) {
 	editBtns[i].addEventListener('click', editFunction);
 }	
 
 	// add Buttton
-	var addBtn = document.getElementById('add');
+	let addBtn = document.getElementById('add');
 	addBtn.addEventListener('click', function () {
 		editClicked = false;
 		dialog.showModal();
@@ -40,17 +40,17 @@ for (var i = 0; i < editBtns.length; i++) {
 	const dateArr = [];
 	const summaryArr = [];
 	//  save Button
-	var saveBtn = document.getElementById('save');
-	var entryCount = document.getElementById("count");
-	var node;
-	var noEntry = false;
-	var list = document.getElementById('list');
+	let saveBtn = document.getElementById('save');
+	let entryCount = document.getElementById("count");
+	let node;
+	let noEntry = false;
+	let list = document.getElementById('list');
 	function saveFunction() {
 		node = document.createElement("TR");
 
-		var name = document.getElementById("name").value;
-		var date = document.getElementById("date").value;
-		var summary = document.getElementById("summary").value;
+		let name = document.getElementById("name").value;
+		let date = document.getElementById("date").value;
+		let summary = document.getElementById("summary").value;
 
 
 		name = DOMPurify.sanitize(name);
@@ -90,7 +90,7 @@ for (var i = 0; i < editBtns.length; i++) {
 			}
 
 			 deleteBtns = document.getElementsByClassName('delete');
-			for (var i = 0; i < deleteBtns.length; i++) {
+			for (let i = 0; i < deleteBtns.length; i++) {
 				deleteBtns[i].addEventListener('click', function () {
 					deletedTR = this.parentNode.parentNode.parentNode;
 					deleteContent = this.parentNode.parentNode;
@@ -99,8 +99,8 @@ for (var i = 0; i < editBtns.length; i++) {
 			}
 
 
-			 editBtns = document.getElementsByClassName('edit');
-			for (var i = 0; i < editBtns.length; i++) {
+			editBtns = document.getElementsByClassName('edit');
+			for (let i = 0; i < editBtns.length; i++) {
 				editBtns[i].addEventListener('click', function () {
 					editClicked = true;
 					editTR = this.parentNode.parentNode.parentNode;
@@ -115,7 +115,7 @@ for (var i = 0; i < editBtns.length; i++) {
 	saveBtn.addEventListener('click', saveFunction);
 
 	//  confirm delete in dialog
-	var deleteOk = document.getElementById("deleteOk");
+	let deleteOk = document.getElementById("deleteOk");
 	function deleteOkFunction() {
 		deletedTR.removeChild(deleteContent);
 		if (document.getElementsByTagName("TR").length == 1) {
