@@ -3,9 +3,7 @@
 <head>
 
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <script type="module" src="customdialog.js"></script>
+    <meta name="viewport" content="width=device-width"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js"></script>
 </head>
 <body>
@@ -16,20 +14,20 @@
     <button onclick="promptFunction()" id="prompt">Prompt</button>
     <button onclick ="saferPromptFunction()" id="saferPrompt">Safer Prompt</button>
 
-    <hr/>
+    <br>
 
-    <output id="result"></output>
+    <p id="result"></p>
 
     <script>
-
+        function purifyData(userInput) {
+            return DOMPurify.sanitize(userInput);
+        }
         function alertFunction() {
 
             alert("Alert button pressed!");
         }
 
-        function cleanData(userInput) {
-            return DOMPurify.sanitize(userInput);
-        }
+
 
         function confirmFunction() {
             let text = "Do you confirm this?";
@@ -39,7 +37,6 @@
             else {
                 text = `Confirm result: false`;
             }
-            document.getElementById("result").style.display = "block";
             document.getElementById("result").innerHTML = text;
         }
 
@@ -47,11 +44,9 @@
         function promptFunction() {
             let name = prompt("What is your name?");
             if (name != null && name != "") {
-                document.getElementById("result").style.display = "block";
                 document.getElementById("result").innerHTML = `Prompt result: ${name}`;
             }
             else {
-                document.getElementById("result").style.display = "block";
                 document.getElementById("result").innerHTML = "Prompt result: User didn't enter anything";
             }
         }
@@ -59,12 +54,10 @@
         function saferPromptFunction() {
             let name = prompt("What is your name?");
             if (name != null && name != "") {
-                document.getElementById("result").style.display = "block";
-                const data = cleanData(`Prompt result: ${name}`);
+                const data = purifyData(`Prompt result: ${name}`);
                 document.getElementById("result").innerHTML = data;
             }
             else {
-                document.getElementById("result").style.display = "block";
                 document.getElementById("result").innerHTML = "Prompt result: User didn't enter anything";
             }
         }

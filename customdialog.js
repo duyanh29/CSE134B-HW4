@@ -3,19 +3,6 @@
 	var res = document.getElementById("result");
 	var dialogContent = document.getElementById('dialogSub');
 
-
-	function alertFunction(){
-		dialogContent.innerHTML = "<p> <label> Alert Pressed! </label> </p>" 
-							+ "<menu> <button class='done'> Ok </button> </menu>";
-		dialog.showModal();
-		for (var i = 0; i < doneBtns.length; i++) {
-			doneBtns[i].addEventListener("click", function () {
-				res.innerHTML = "";
-			});
-		}
-	}
-
-
 	function timeC() {
 		res.innerHTML = "Confirm Result : " + dialog.returnValue;
     }
@@ -27,42 +14,48 @@
 	function confirmFunction() {
 		res.innerHTML = "";
 		dialogContent.innerHTML = "<p> <label> Do you confirm this? </label> </p>" + 
-					"<menu> <button value='false' class='done'> Cancel </button>" + 
-					"<button value='true' class='done'> Ok </button></menu>";
+					"<button value='false' class='done'> Cancel </button>" + 
+					"<button value='true' class='done'> Ok </button>";
 		dialog.showModal();
 		for (var i = 0; i < doneBtns.length; i++) {
 			doneBtns[i].addEventListener("click", confirmResult);
 		}
 
     }
+	function alertFunction(){
+		dialogContent.innerHTML = "<p> <label> Alert Button Pressed! </label> </p>" 
+							+ "<button class='done'> OK </button> ";
+		dialog.showModal();
+		for (var i = 0; i < doneBtns.length; i++) {
+			doneBtns[i].addEventListener("click", function () {
+				res.innerHTML = "";
+			});
+		}
+	}
 
 	function promptResult() {
 		var textInputVal;
 		var returnVal;
-
-		setTimeout(function () {
-			textInputVal = document.getElementById("in").value;
+		textInputVal = document.getElementById("in").value;
 			
-			returnVal = dialog.returnValue;
-			if(returnVal === 'cancel' || document.getElementById('in').value === ''){
-				textInputVal = "Prompt result: User didn't enter anything"
-				res.innerHTML = textInputVal;
-			}
-			else{
-				textInputVal = DOMPurify.sanitize(textInputVal);
-				res.innerHTML = "Prompt Result : " + textInputVal;
-			}
+		returnVal = dialog.returnValue;
+		if(returnVal === 'cancel' || document.getElementById('in').value === ''){
+			textInputVal = "Prompt result: User didn't enter anything"
+			res.innerHTML = textInputVal;
+		}
+		else{
+			textInputVal = DOMPurify.sanitize(textInputVal);
+			res.innerHTML = "Prompt Result : " + textInputVal;
+		}
 
-			
-		})
 	}
 
 	function promptFunction() {
 		res.innerHTML = "";
-		dialogContent.innerHTML = "<form><label>What is your name? </label>" + 
-				"<input type='text' id='in'><br></input>" + 
-				"<button value='cancel' class='done'>Cancel</button>" + 
-				"<button value='ok' class='done'>Ok</button></form>";
+		dialogContent.innerHTML = " <p>What is your name? </p>" + 
+				"<input type='text' id='in'></input>" + 
+				"<br> <button value='cancel' class='done'>Cancel</button>" + 
+				"<button value='ok' class='done'>OK</button> ";
 
 		dialog.showModal()
 		for (var i = 0; i < doneBtns.length; i++) {
