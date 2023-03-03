@@ -13,7 +13,7 @@
 
 	function confirmFunction() {
 		res.innerHTML = "";
-		dialogContent.innerHTML = "<p> <label> Do you confirm this? </label> </p>" + 
+		dialogContent.innerHTML = "<p> Do you confirm this? </p>" + 
 					"<button value='false' class='done'> Cancel </button>" + 
 					"<button value='true' class='done'> Ok </button>";
 		dialog.showModal();
@@ -23,7 +23,7 @@
 
     }
 	function alertFunction(){
-		dialogContent.innerHTML = "<p> <label> Alert Button Pressed! </label> </p>" 
+		dialogContent.innerHTML = "<p> Alert Button Pressed! </p>" 
 							+ "<button class='done'> OK </button> ";
 		dialog.showModal();
 		for (var i = 0; i < doneBtns.length; i++) {
