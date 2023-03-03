@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+html {
+    font-family: Lato;
+    background-color: lightblue;
+    color: darkblue
+}
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td{
+  border-radius: 20px;
+}
+h1 {
+    background-color: lightpink;
+    padding-right: 5px;
+    padding-left: 5px;
+    text-align: center;
+    align-self: center;
+}
+
+dialog {
+    color: darkblue;
+    border-radius: 20px;
+    border-color: lightpink;
+    background-color: lightblue;
+}
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title> My Styled Blog</title>
+
+</head>
+
+<body>
+    <h1>Styled Blog:</h1><br>
+    <dialog id="dialog">
+        <form method="dialog">
+
+            <b>Name: </b><input type="text" id="name"/><br><br>
+            <b>Date: </b><input type="date" id="date"/><br><br>
+            <b>Summary: <br> <textarea id="summary"></textarea></b> <br><br>
+
+            <button id="cancel">Cancel</button><button id="save">Save</button>
+        </form>
+    </dialog>
+
+    <dialog id="dialogDelete">
+        <form method="dialog">
+            <b>Delete Movie?</b><br><br>
+            <button>Cancel </button> <button id="deleteOk">OK</button>
+        </form>
+    </dialog>
+    <table id="list" style="margin: 0px auto; width:95%; text-align: center; ">
+        <tr>
+            <th style="background-color: lightgoldenrodyellow;">Name</th>
+            <th style="background-color: lightgoldenrodyellow;" >Date</th>
+            <th style="background-color: lightgoldenrodyellow;">Summary</th>
+            <th style="background-color: lightgoldenrodyellow;">Edit</th>
+            <th style="background-color: lightgoldenrodyellow;">Delete</th>
+        </tr>
+        <tr>
+            <td>Name 1</td>
+            <td>02/23/2023</td>
+            <td style="width: 300px;">Summary of Name 1</td>
+            <td>
+                <image src="pencil.png" style="height: 20px; vertical-align: middle;" class="edit"></image>
+            </td>
+            <td>
+                <image src="trash.png" style="height: 20px; vertical-align: middle;" class="delete"></image>
+            </td>
+        </tr>
+        <tr>
+            <td>Name 2</td>
+            <td>02/24/2023</td>
+            <td style="width: 300px;">Summary of Name 2</td>
+            <td>
+                <image src="pencil.png" style="height: 20px; vertical-align: middle;" class="edit"></image>
+            </td>
+            <td>
+                <image src="trash.png" style="height: 20px; vertical-align: middle;" class="delete"></image>
+            </td>
+        </tr>
+        <tr>
+            <td>Name 3</td>
+            <td>02/25/2023</td>
+            <td style="width: 300px;">Summary of Name 3 </td>
+            <td>
+                <image src="pencil.png" style="height: 20px; vertical-align: middle;" class="edit"></image>
+            </td>
+            <td>
+                <image src="trash.png" style="height: 20px; vertical-align: middle;" class="delete"></image>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <div>
+        <div id="count"></div>
+        <image src="add.png" style="height: 20px; vertical-align: middle;" id="add">
+            <b>Add Entry</b>
+        </image>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.8/purify.js"></script>
+    <script src="styledblog.js"></script>
+
+</body>
+
+</html>

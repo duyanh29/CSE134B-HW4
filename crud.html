@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>My Blog</title>
+</head>
+
+<body>
+    <h1>My Blogs</h1>
+    <dialog id="dialog">
+        <form method="dialog">
+            Name: <input type="text" placeholder="Name" id="name" /><br>
+            Date: <input type="date" placeholder="Date" id="date" /><br>
+            Summary: <input type="text" placeholder="Summary" id="summary"/><br>
+            <button id="cancel">Cancel</button><button id="save">Save</button>
+        </form>
+    </dialog>
+
+    <dialog id="dialogDelete">
+        <form method="dialog">
+            Delete Entry?<br>
+            <button>Cancel</button><button id="deleteOk">OK</button>
+        </form>
+    </dialog>
+
+    <ul id="list">
+        <li>Name 1 - 02/23/2023 - Summary: Good <button class="edit"> Edit </button><button class="delete">Delete</button></li>
+        <li>Name 2 - 02/24/2023 - Summary: Good<button class="edit"> Edit </button><button class="delete">Delete</button></li>
+        <li>Name 3 - 02/25/2023 - Summary: Good<button class="edit"> Edit </button><button class="delete">Delete</button></li>
+    </ul>
+    <div id="count">
+    </div>
+    <button id="add">Add Entry</button>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.8/purify.js"></script>
+    <script src="blog.js"></script>
+</body>
+
+</html>

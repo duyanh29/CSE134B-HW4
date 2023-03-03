@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <title>Custom Dialog</title>
+
+</head>
+<body>
+    <main>
+        <h1>Custom Dialog</h1>
+        
+        <dialog id="dialog">
+            <form method="dialog" id="dialogSub">
+            </form>
+        </dialog>
+
+            <button onclick="alertFunction()" id="alert">Alert</button>
+            <button onclick ="confirmFunction()" id="confirm">Confirm</button>
+            <button onclick ="promptFunction()" id="prompt">Prompt</button>
+
+            <p>
+                <output id="result"></output>
+            </p>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.8/purify.js"></script>
+        <script src="customdialog.js"></script>
+    </main>
+
+</body>
+
+</html>
