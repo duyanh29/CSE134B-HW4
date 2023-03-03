@@ -36,7 +36,9 @@ for (var i = 0; i < editBtns.length; i++) {
 		editClicked = false;
 		dialog.showModal();
 	});
-
+	const nameArr = [];
+	const dateArr = [];
+	const summaryArr = [];
 	//  save Button
 	var saveBtn = document.getElementById('save');
 	var entryCount = document.getElementById("count");
@@ -44,16 +46,26 @@ for (var i = 0; i < editBtns.length; i++) {
 	var noEntry = false;
 	var list = document.getElementById('list');
 	function saveFunction() {
+		node = document.createElement("TR");
+
 		var name = document.getElementById("name").value;
 		var date = document.getElementById("date").value;
 		var summary = document.getElementById("summary").value;
 
-		node = document.createElement("TR");
 
 		name = DOMPurify.sanitize(name);
-		date = DOMPurify.sanitize(date);
-		summary = DOMPurify.sanitize(summary);
+		nameArr.push(name);
 
+		date = DOMPurify.sanitize(date);
+		dateArr.push(date);
+
+		summary = DOMPurify.sanitize(summary);
+		summaryArr.push(summary);
+
+		localStorage.setItem("name", nameArr);
+		localStorage.setItem("date", dateArr);
+
+		localStorage.setItem("summary", summaryArr);
 		document.getElementById("name").value = "";
 		document.getElementById("date").value = "";
 		document.getElementById("summary").value = "";

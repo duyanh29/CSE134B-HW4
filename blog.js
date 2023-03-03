@@ -30,6 +30,9 @@
 		editClicked = false;
 		dialog.showModal();
 	});
+	const nameArr = [];
+	const dateArr = [];
+	const summaryArr = [];
 
 	// save button
 	var saveBtn = document.getElementById('save');
@@ -39,14 +42,25 @@
 	var noEntry = false;
 
 	function saveFunction() {
-		node = document.createElement("LI");
 		var name = document.getElementById("name").value;
 		var date = document.getElementById("date").value;
 		var summary = document.getElementById("summary").value;
+		node = document.createElement("LI");
+
 
 		name = DOMPurify.sanitize(name);
+		nameArr.push(name);
+
 		date = DOMPurify.sanitize(date);
+		dateArr.push(date);
+
 		summary = DOMPurify.sanitize(summary);
+		summaryArr.push(summary);
+
+		localStorage.setItem("name", nameArr);
+		localStorage.setItem("date", dateArr);
+
+		localStorage.setItem("summary", summaryArr);
 
 		node.innerHTML = name + " (" + date + ") - Summary: " + summary + 
 		' <button class = "edit"> Edit </button><button class="delete">Delete</button>';
